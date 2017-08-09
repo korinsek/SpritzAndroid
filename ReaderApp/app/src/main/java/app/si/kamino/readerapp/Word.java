@@ -24,11 +24,10 @@ public class Word {
     private float xWordOffset, yWordOffset, xLetterOffset, yLetterOffset;
     private Paint paint;
 
-    public Word(String word, Paint p, int textSize) {
+    public Word(String word, Paint p, float textSize) {
         this.word = word;
         this.pivot = Spritz.GetPivot(word);
         this.pivotLetter = word.substring(pivot, pivot + 1);
-
         this.paint = p;
         paint.setStyle(Paint.Style.FILL);
         paint.setTypeface(Typeface.MONOSPACE);
@@ -45,6 +44,7 @@ public class Word {
     public void Draw(Canvas canvas, int width, int height) {
         int halfWidth = width / 2;
         int halfHeight = height / 2;
+        paint.setColor(Color.BLACK);
         canvas.drawText(word, halfWidth - xWordOffset, halfHeight + yWordOffset, paint);
         paint.setColor(Color.RED);
         canvas.drawText(pivotLetter, halfWidth + xLetterOffset, halfHeight + yLetterOffset, paint);

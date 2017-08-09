@@ -2,8 +2,12 @@ package app.si.kamino.readerapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.SmallTest;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.TouchUtils;
+import android.widget.Button;
+
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -40,19 +44,5 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     @SmallTest
     public void testReaderView() {
         assertNotNull(view);
-    }
-
-    @SmallTest
-    public void testWordsCount() {
-        assertEquals(activity.getString(R.string.fairy_tale).split("\\s").length, view.words.size());
-    }
-
-    @SmallTest
-    public void testWordsSequence() {
-        String[] wordsInput = activity.getString(R.string.fairy_tale).split("\\s");
-        String[] result = new String[view.words.size()];
-        for (int i=0;i<result.length;i++)
-            result[i] = view.words.get(i).getWord();
-        assertArrayEquals(wordsInput,result);
     }
 }

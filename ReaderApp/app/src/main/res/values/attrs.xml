@@ -1,7 +1,0 @@
-<resources>
-    <declare-styleable name="Reader">
-        <attr name="textSize" format="integer" />
-        <attr name="speedWordsPerMin" format="integer" />
-        <attr name="text" format="string" />
-    </declare-styleable>
-</resources>
